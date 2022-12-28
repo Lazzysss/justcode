@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="custom.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<title>Document</title>
+</head>
+<body>
+	<header>
+		<ul class="navigation">
+			<li class="LiPC"><a class="LinkPC" href="#">Home</a></li>
+			<li class="LiPC"><a class="LinkPC" href="#contact">Contacts</a></li>
+      <li class="LiPC"><a class="LinkPC" href="#">Products</a></li>
+      <div class="wrap">
+         <div class="search">
+            <input type="text" class="searchTerm" placeholder="Что вы ищете ?">
+            <button type="submit" class="searchButton">
+            <i class="fa fa-search" aria-hidden="true"></i>
+           </button>
+         </div>
+      </div>
+      <img src="../static/css/logo.png" class="logo"> <button href="#" class="login">Регистрация</button> <button href="#" class="login1">Войти</button>  
+		</ul>
+	</header>
+
+  {% for Shop in posts %}
+	 <div class="content">
+      <div class="box">
+        <img src="{{Shop.img1}}">
+        <br>
+        <h2>Товар: {{ Shop.title }}</h2>
+        <h4 style="width: 250px;">Описание товара: {{Shop.body}}</h4>
+        <h4>Цена: {{Shop.price}}</h4>
+        <h4>Категория: {{Shop.rubric}}</h4>
+        <a href="#" class="buy">Купить товар</a>
+      </div>
+	 </div>
+
+  {% endfor %}
+
+    <div class="container">
+      <div id="contact" class="box1">
+
+        <h1>Contacts</h1>
+        <br>
+        <p><h3>Contacts Djalil:</h3>
+          <h3>Number:<tel> +999999999999</tel></h3> 
+          <h3>Gmail: BrawlStars228@com</h3>
+        </p>
+        <br>
+        <br>
+        <p><h3>Contacts Artur:</h3>
+          <h3>Number:<tel> +999999999999</tel></h3> 
+          <h3>Gmail: Negr@com</h3>
+        </p>
+      </div>
+    </div>
+
+
+	<footer>
+	  <div class="footer-copyright text-center">&copy; Copyright</a>
+    <a href="#" class="gotopbtn">
+    </a>
+	  </div>
+	</footer>
+
+
+
+  
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+   var margin = 100; // переменная для контроля докрутки
+   $("a").click(function() { // тут пишите условия, для всех ссылок или для конкретных
+      $("html, body").animate({
+         scrollTop: $($(this).attr("href")).offset().top+margin+ "px" // .top+margin - ставьте минус, если хотите увеличить отступ
+      }, {
+         duration: 1600, // тут можно контролировать скорость
+         easing: "swing"
+      });
+      return false;
+   });
+});
+</script>
+
+</html>
+
